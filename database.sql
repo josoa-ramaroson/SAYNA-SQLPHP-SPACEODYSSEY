@@ -113,7 +113,7 @@ DROP TABLE IF EXISTS `vaisseaux`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vaisseaux` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
+  `identifiant` varchar(255) NOT NULL,
   `etat` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `poids_max` double DEFAULT NULL,
@@ -139,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-10 14:52:38
+-- Dump completed on 2023-11-10 15:48:43
