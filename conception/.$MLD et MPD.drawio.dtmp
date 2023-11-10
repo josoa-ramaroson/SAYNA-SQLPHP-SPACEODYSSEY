@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-11-10T12:44:14.262Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="m8aVnm16HQmJIKoWwGYx" version="21.6.8" type="device">
+<mxfile host="Electron" modified="2023-11-10T12:54:02.701Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="r75kZbVPwkSzaizsMWTg" version="21.6.8" type="device">
   <diagram name="Page-1" id="lq9P0G_M67wj0URqC4pv">
     <mxGraphModel dx="558" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="C3l1iMluJJVMiJe2Zk3R-1" value="missions(&lt;u&gt;id&lt;/u&gt;, nom, debut, fin, status, niveau, #id_planet,#id_vaisseau)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="80" y="90" width="720" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="C3l1iMluJJVMiJe2Zk3R-2" value="vaisseaux(&lt;u&gt;id&lt;/u&gt;, nom, etat, status, poids_max)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="C3l1iMluJJVMiJe2Zk3R-2" value="vaisseaux(&lt;u&gt;id&lt;/u&gt;, identifiant, etat, status, poids_max)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="80" y="130" width="720" height="30" as="geometry" />
         </mxCell>
         <mxCell id="C3l1iMluJJVMiJe2Zk3R-3" value="MODELE LOGIQUE DES DONNÉE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" parent="1" vertex="1">
