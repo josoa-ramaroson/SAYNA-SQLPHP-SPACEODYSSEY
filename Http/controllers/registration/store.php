@@ -8,7 +8,7 @@ use Http\LoginForm\LoginForm;
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$form = new LoginForm();
+$form = new LoginForm("");
 if(!$form->validate($username,$password)){
     return view("registration/create.view.php", [
                 "errors"=>$form->errors()

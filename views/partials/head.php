@@ -12,10 +12,13 @@
   <link rel="stylesheet" href= "/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/css/adminlte.min.css">
+  <link rel="stylesheet" href="/css/select2.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-duallistbox.min.css">
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
 <div class="preloader flex-column justify-content-center align-items-center">
-<img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+<img class="animation__wobble" src="/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
 </div>  

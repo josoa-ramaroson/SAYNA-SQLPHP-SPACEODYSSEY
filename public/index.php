@@ -11,6 +11,7 @@ require BASE_PATH . 'Core/functions.php';
 
 
 
+
 // spl_autoload_register(function ($class){
 
 //     $class = str_replace("\\",DIRECTORY_SEPARATOR, $class);
@@ -25,7 +26,7 @@ $router = new Core\Router();
 
 require base_path("routes.php");
 
-
+// GETTING THE TYPE OF REQUEST IN ORDER TO FOLLOW THE PRINCIPLE OF RESTAPI
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
