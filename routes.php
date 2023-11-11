@@ -5,8 +5,14 @@ $router->get('/', 'index.php');
 $router->get('/dashboard', 'index.php');
 
 
-$router->get('/missions','missions/show.php');
-$router->get('/missions/create','missions/create.php');
+$router->get('/missions',"missions/show.php");
+$router->get('/missions/create', "missions/create.php");
+$router->get('/missions/edit', "missions/edit.php");
+
+$router->post('/missions/store', 'missions/store.php');
+$router->patch('/missions', 'missions/update.php');
+$router->delete('/missions', 'missions/delete.php');
+
 
 
 $router->get('/spaceships',"vaisseaux/show.php");

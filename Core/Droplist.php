@@ -40,4 +40,19 @@ class Droplist{
         "OCCUPIED",
         "OFF"
     ];
+
+    const MISSION_STATE = [
+        "IN PREPARATION",
+        "IN PROGRESS",
+        "FINISHED",
+        "ABANDONNED"
+    ];
+
+    const MISSSION_LEVEL = [
+        "S",
+        "A",
+        "B",
+        "C",
+        "D"
+    ];
 }

@@ -8,7 +8,7 @@
                 <div class="card-header border-transparent">
                     <h3 class="card-title">All Astronauts </h3>
                 <!-- /.card-body -->
-                <a href="/astronauts/create" class="btn btn-sm btn-info float-right">New</a>
+                <a href="/missions/create" class="btn btn-sm btn-info float-right">New</a>
                    
                 
                 </div>
