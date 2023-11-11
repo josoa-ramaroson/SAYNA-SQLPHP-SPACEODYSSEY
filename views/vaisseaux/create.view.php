@@ -5,7 +5,7 @@
 
 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">General Elements</h3>
+                <h3 class="card-title">AN NEW SHIPS!!! OURRA !!!! </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

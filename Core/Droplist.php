@@ -28,4 +28,16 @@ class Droplist{
         "UNKNOWN"
     ];
 
+    const HEALTH_STATE = [
+        "HEALTHY",
+        "SICK",
+        "DEAD"
+    ];
+
+    const DISPONIBILITY = [
+        "FREE",
+        "ON MISSION",
+        "OCCUPIED",
+        "OFF"
+    ];
 }

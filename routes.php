@@ -25,3 +25,12 @@ $router->patch('/planets', 'planetes/update.php');
 
 $router->post('/planets/store', "planetes/store.php");
 $router->delete('/planets', 'planetes/delete.php');
+
+
+$router->get('/astronauts', "astronautes/show.php");
+$router->get('/astronauts/create', "astronautes/create.php");
+$router->get('/astronauts/edit', "astronautes/edit.php");
+$router->patch('/astronauts', 'astronautes/update.php');
+
+$router->post('/astronauts/store', "astronautes/store.php");
+$router->delete('/astronauts', 'astronautes/delete.php');
