@@ -37,7 +37,7 @@
                         Level
                       </th>
                       <th style="width: 8%" class="text-center">
-                          Status
+                          State
                       </th>
                       <th style="width: 20%">
                     
@@ -79,11 +79,7 @@
                                 <span class="badge badge-success">  <?= $mission["etat"] ?></span>
                             </td>
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="/missions/show?id=<?=$mission['id']?>">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    View
-                                </a>
+                               
                                 <a class="btn btn-info btn-sm" href="/missions/edit?id=<?=$mission['id']?>">
                                     <i class="fas fa-pencil-alt">
                                     </i>

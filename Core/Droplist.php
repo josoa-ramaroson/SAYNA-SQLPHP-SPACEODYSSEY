@@ -1,5 +1,6 @@
 <?php 
 
+// this droplist is for all different value that a row should have
 namespace Core;
 
 class Droplist{
@@ -42,6 +43,7 @@ class Droplist{
     ];
 
     const MISSION_STATE = [
+        "NEW",
         "IN PREPARATION",
         "IN PROGRESS",
         "FINISHED",
