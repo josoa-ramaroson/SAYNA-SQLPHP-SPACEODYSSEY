@@ -65,3 +65,12 @@ function old($key){
 function asset($path){
     return base_path("views/partials/".$path);
 }
+
+function inAstr($array,$e){
+    foreach($array as $ar){
+        if($ar["nom"] == $e){
+            return true;
+        }
+    }   
+    return false;
+}

@@ -7,29 +7,45 @@ $db = App::resolve("Core\Database");
 
 // we check that the spaceship is there
 
-$astronautes = $db->query("SELECT a.id
-,a.nom as name,
-a.etat_sante as health,
-a.taille as height,
-a.poids as weight,
-a.annee_experience as year,
-a.disponibilite as disponibility,
-v.identifiant as identifier
-FROM astronautes a JOIN vaisseaux v ON v.id = a.vaisseau_id WHERE a.id = :id", [
-    "id"=>$_GET['id'    ]
+$mission = $db->query("SELECT * FROM missions WHERE id = :id",
+[
+    'id' => $_GET['id']
 ])->find();
 
+    
+$mission["planet"]= $db->query("SELECT nom FROM planetes WHERE id = :id",["id"=>$mission["planet_id"]])->find()["nom"];
+$mission["spaceship"] = $db->query("SELECT identifiant FROM vaisseaux WHERE id = :id",["id"=>$mission["vaisseau_id"]])->find()["identifiant"];
+$mission["astronauts"] = $db->query("SELECT 
+nom , id
+FROM astronautes WHERE vaisseau_id = :vid",[
+    "vid"=>$mission["vaisseau_id"]
+])->get();
+    
 
 
 
-$vaisseaux = $db->query("SELECT identifiant FROM vaisseaux")->get();
 
 
+// here we get the general information
+$vaisseaux = $db->query("SELECT id,identifiant FROM vaisseaux")->get();
+$planetes = $db->query("SELECT id, nom FROM planetes")->get();
+$astronautes = $db->query("SELECT id,nom FROM astronautes")->get();
 
-view("astronautes/edit.view.php", [
+foreach($mission['astronauts'] as $astr){
+    $db->query("UPDATE astronautes SET
+    vaisseau_id = :vid WHERE id = :id
+    ",[
+        'vid' =>  null,
+        'id' => $astr['id']
+    ]);
+}
+
+view("missions/edit.view.php", [
     "errors" => Session::getFlashed("errors"),
-    "old" => Session::getFlashed("old") ?? $astronautes,
-    "disponibility" => Droplist::DISPONIBILITY,
-    "health" => Droplist::HEALTH_STATE,
-    "vaisseaux"=> $vaisseaux
+    "old" => $mission,
+    "state" => Droplist::MISSION_STATE,
+    "level" => Droplist::MISSSION_LEVEL,
+    "vaisseaux" => $vaisseaux,
+    "planetes" => $planetes,
+    "astronautes" => $astronautes
 ]);

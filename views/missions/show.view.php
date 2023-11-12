@@ -1,47 +1,15 @@
-
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/sidebar.php') ?>
 <?php require base_path('views/partials/nav.php') ;?>
 
 
 <div class="card">
-                <div class="card-header border-transparent">
-                    <h3 class="card-title">Latest Missions </h3>
-                <!-- /.card-body -->
-                <a href="/missions/create" class="btn btn-sm btn-info float-right">New Mission</a>
-                   
-                
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                    <table class="table table-striped projects">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Begin at</th>
-                                <th>End at</th>
-                                <th>Status</th>
-                                <th>Level</th>
-                                <th>
-                                </th>
-                                <th>
-                                </th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                           
-                        </tbody>
-                    </table>
-                    </div>
-                    <!-- /.table-responsive -->
-                </div>
                
 
-                <div class="card">
+    <div class="card">
         <div class="card-header">
           <h3 class="card-title">List of our missions</h3>
+          <a href="/missions/create" class="btn btn-sm btn-info float-right">New Mission</a>
         </div>
         <div class="card-body p-0">
           <table class="table table-striped table-responsive projects">
@@ -111,12 +79,12 @@
                                 <span class="badge badge-success">  <?= $mission["etat"] ?></span>
                             </td>
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="/spaceship/show?id=<?=$mission['id']?>">
+                                <a class="btn btn-primary btn-sm" href="/missions/show?id=<?=$mission['id']?>">
                                     <i class="fas fa-folder">
                                     </i>
                                     View
                                 </a>
-                                <a class="btn btn-info btn-sm" href="/spaceship/edit?id=<?=$mission['id']?>">
+                                <a class="btn btn-info btn-sm" href="/missions/edit?id=<?=$mission['id']?>">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Edit

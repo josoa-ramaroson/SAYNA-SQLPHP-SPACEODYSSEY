@@ -1,5 +1,4 @@
 
-
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/sidebar.php') ?>
 <?php require base_path('views/partials/nav.php') ;?>
@@ -12,8 +11,9 @@
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="POST" action="/missions/store">
-
+                <form method="POST" action="/missions">
+                    <input type="hidden" name="_method" value="PATCH">
+                        <input type="hidden" name="id" value="<?=$old['id']?>">
                     <div class="row">
 
                         <div class="col-sm-6">
@@ -21,9 +21,9 @@
                             <div class="form-group">
                                 <label>Name</label>
                              
-                                <input type="text" name="name" value="<?= $old["name"]?? ''?>" required class="form-control" placeholder="Give it a name ">
-                                <?php if (isset($errors['name'])):?>    
-                                    <p class="text-danger"><?=$errors["name"] ?></p>
+                                <input type="text" name="name" value="<?= $old["nom"]?? ''?>" required class="form-control" placeholder="Give it a name ">
+                                <?php if (isset($errors['nom'])):?>    
+                                    <p class="text-danger"><?=$errors["nom"] ?></p>
                                 <?php endif?>
                                
                             </div>
@@ -33,7 +33,7 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Description</label>
-                                    <textarea name="description" id="inputDescription" class="form-control" rows="4"></textarea>
+                                    <textarea name="description" id="inputDescription" class="form-control" rows="4"> <?=$old["description"]?></textarea>
                                 <?php if (isset($errors['description'])):?>    
                                     <p class="text-danger"><?=$errors["description"] ?></p>
                                 <?php endif?>
@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <label for="begin">Begint at</label>
                              
-                                <input type="date" required="required" id="begin" name="begin" class="form-control">
+                                <input type="date" required="required" id="begin" name="begin" class="form-control" value="<?=explode(' ',$old["debut"])[0]?>">
                                 <?php if (isset($errors['begin'])):?>    
                                     <p class="text-danger"><?=$errors["begin"] ?></p>
                                 <?php endif?>
@@ -59,10 +59,10 @@
                             <div class="form-group">
                                 <label for="end">End at</label>
                              
-                                <input type="date" required="required" id="end" name="end" class="form-control">
-                                <?php if (isset($errors['end'])):?>    
-                                    <p class="text-danger"><?=$errors["end"] ?></p>
-                                <?php endif?>
+                                <input type="date" required="required" id="end" name="end" class="form-control"value="<?=explode(' ',$old["fin"])[0]?>">
+                                <?php if (isset($errors['fin'])):?>    
+                                    <p class="text-danger"><?=$errors["fin"] ?></p>
+                                <?php endif?><
                                
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 <label>State</label>
                                 <select class="form-control select2" name="state" style="width: 100%;">
                                 <?php foreach($state as $st): ?>
-                                        <option <?= ($old['state'] == $st) ? 'selected="selected"' : ""?> ><?=$st?></option>
+                                        <option <?= ($old['etat'] == $st) ? 'selected="selected"' : ""?> ><?=$st?></option>
                                     <?php endforeach?>
                                 </select>
                             </div>
@@ -83,7 +83,7 @@
                                 <label>Level</label>
                                 <select class="form-control select2" name="level" style="width: 100%;">
                                 <?php foreach($level as $lv): ?>
-                                        <option <?= ($old['level'] == $lv) ? 'selected="selected"' : ""?> ><?=$lv?></option>
+                                        <option <?= ($old['niveau'] == $lv) ? 'selected="selected"' : ""?> ><?=$lv?></option>
                                     <?php endforeach?>
                                 </select>
                             </div>
@@ -109,7 +109,7 @@
                                 <label>Planets</label>
                                 <select class="form-control select2" name="planets" style="width: 100%;">
                                     <?php foreach($planetes as $p): ?>
-                                        <option <?= ($old['planets'] == $p['nom']) ? 'selected="selected"' : ""?> value="<?=$p['id']?>" ><?=$p['nom']?></option>"
+                                        <option <?= ($old['planet'] == $p['nom']) ? 'selected="selected"' : ""?> value="<?=$p['id']?>" ><?=$p['nom']?></option>"
                                     <?php endforeach?>
                                 </select>
                             </div>
@@ -120,7 +120,7 @@
                                 <label>Astronauts</label>
                                 <?php foreach($astronautes as $a): ?>
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox"  name="astronauts[]" id="<?=$a['nom'].$a['id']?>" value="<?=$a['id']?>">
+                                        <input class="custom-control-input" type="checkbox" <?= (inAstr($old['astronauts'],$a['nom'])) ? 'checked="checked"' : ""?> name="astronauts[]" id="<?=$a['nom'].$a['id']?>" value="<?=$a['id']?>">
                                         <label for="<?=$a['nom'].$a['id']?>" class="custom-control-label"><?=$a['nom']?></label>
                                     </div>
                                     <?php endforeach?>

@@ -1,4 +1,3 @@
-
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/sidebar.php') ?>
 <?php require base_path('views/partials/nav.php') ;?>
@@ -6,14 +5,13 @@
 
 <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">ENTER THE INFORMATION FOR THE NEWBIES</h3>
+                <h3 class="card-title">UPDATE INFORMATION</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
 
-                <form method="POST" action="/astronauts">
-                    <input type="hidden" name="_method" value="PATCH">
-                    <input type="hidden" name="id" value="<?= $old['id']?>">
+                <form method="POST" action="/astronauts/store">
+
                     <div class="row">
 
                         <div class="col-sm-6">
@@ -90,7 +88,7 @@
                                 <label>Spaceship</label>
                                 <select class="form-control select2" name="spaceship" style="width: 100%;">
                                     <?php foreach($vaisseaux as $v): ?>
-                                        <option <?= ($old['identifier'] == $dp) ? 'selected="selected"' : ""?>><?=$v['identifiant']?></option>
+                                        <option><?=$v['identifiant']?></option>
                                     <?php endforeach?>
                                 </select>
                             </div>

@@ -8,8 +8,8 @@ $db = App::resolve("Core\Database");
 
 // otherwise let's store the new spaceship 
 
-$db->query("DELETE FROM astronautes WHERE id = :id",[
+$db->query("DELETE FROM missions WHERE id = :id",[
     'id'=>$_POST['id'],
 ]);
 
-header('location: /astronauts');
+header('location: /missions');
