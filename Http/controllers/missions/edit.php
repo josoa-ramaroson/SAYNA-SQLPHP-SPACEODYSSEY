@@ -22,23 +22,12 @@ FROM astronautes WHERE vaisseau_id = :vid",[
 ])->get();
     
 
-
-
-
-
 // here we get the general information
 $vaisseaux = $db->query("SELECT id,identifiant FROM vaisseaux")->get();
 $planetes = $db->query("SELECT id, nom FROM planetes")->get();
 $astronautes = $db->query("SELECT id,nom FROM astronautes")->get();
 
-foreach($mission['astronauts'] as $astr){
-    $db->query("UPDATE astronautes SET
-    vaisseau_id = :vid WHERE id = :id
-    ",[
-        'vid' =>  null,
-        'id' => $astr['id']
-    ]);
-}
+
 
 view("missions/edit.view.php", [
     "errors" => Session::getFlashed("errors"),

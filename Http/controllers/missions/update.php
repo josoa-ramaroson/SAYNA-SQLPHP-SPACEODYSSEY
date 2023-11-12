@@ -15,6 +15,17 @@ if ( !Validator::string($_POST['name'], 1, 100)) {
 
 }
 
+$vaisseaux = $db->query("SELECT vaisseau_id vid FROM missions WHERE id = :id ",[
+    'id' => $_POST['id']
+])->find()['vid'];
+
+
+$db->query("UPDATE astronautes SET
+vaisseau_id = :vid WHERE vaisseau_id = :id
+",[
+    'vid' =>  null,
+    'id' => $vaisseaux
+]);
 
 // otherwise let's store the new spaceship 
 

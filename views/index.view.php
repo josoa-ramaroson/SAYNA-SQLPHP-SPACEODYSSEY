@@ -28,7 +28,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Total Mission</span>
                 <span class="info-box-number">
-                  10
+                  <?= $total_missions ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -42,7 +42,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Completed Missions</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number"><?= $completed_mission?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -59,7 +59,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Spaceships</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-number"> <?= $total_vaisseau?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -72,7 +72,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Astronauts</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-number"><?= $total_astronauts?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -130,28 +130,28 @@
                     <table class="table m-0">
                         <thead>
                         <tr>
-                      <th style="width: 10%">
-                      Name
-                      </th>
-                      <th style="width: 30%">
-                        Astronauts
-                      </th>
-                      <th style="width: 10%">
-                        Spaceship
-                      </th>
-                      <th style="width: 10%">
-                        Planet
-                      </th>
-                      <th>
-                        Level
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          State
-                      </th>
-                      <th style="width: 20%">
-                    
-                      </th>
-                  </tr>
+                            <th style="width: 10%">
+                            Name
+                            </th>
+                            <th style="width: 30%">
+                                Astronauts
+                            </th>
+                            <th style="width: 10%">
+                                Spaceship
+                            </th>
+                            <th style="width: 10%">
+                                Planet
+                            </th>
+                            <th>
+                                Level
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                State
+                            </th>
+                            <th style="width: 20%">
+                            
+                            </th>
+                        </tr>
                         </thead>
                         <tbody>
                             <?php foreach($missions as $mission):?>
