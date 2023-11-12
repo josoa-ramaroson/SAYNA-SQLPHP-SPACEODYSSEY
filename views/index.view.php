@@ -163,7 +163,8 @@
                                 <td>
                                     <ul class="list-inline">
                                         <?php foreach($mission["astronauts"] as $astronaut) :?>
-                                            <li class="list-inline-item bg-success">
+                                          
+                                            <li class="list-inline-item badge bg-<?= ($astronaut['h'] == "HEALTHY") ? "success" : (($astronaut['h'] == "SICK")? "warning" : "danger" )?>">
                                                 <!-- <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png"> -->
                                                 <?= $astronaut["nom"] ?>
                                                 </li>

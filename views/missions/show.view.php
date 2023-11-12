@@ -75,8 +75,11 @@
                             <td >
                                 <?= $mission["niveau"] ?>                         
                             </td>
+                     
                             <td class="project-state">
-                                <span class="badge badge-success">  <?= $mission["etat"] ?></span>
+                                <span class="badge badge-<?= ($mission['etat'] ==  "FINISHED" ) ? 'danger' : ( $mission['etat'] ==  "ABANDONNED" ? 'warning' : 'success' )?>"> 
+                                     <?= $mission["etat"] ?>
+                                    </span>
                             </td>
                             <td class="project-actions text-right">
                                
