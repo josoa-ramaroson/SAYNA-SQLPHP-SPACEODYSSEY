@@ -1,3 +1,5 @@
+
+
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/sidebar.php') ?>
 <?php require base_path('views/partials/nav.php') ;?>
@@ -68,7 +70,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>State</label>
-                                <select class="form-control select2" name="health" style="width: 100%;">
+                                <select class="form-control select2" name="state" style="width: 100%;">
                                 <?php foreach($state as $st): ?>
                                         <option <?= ($old['state'] == $st) ? 'selected="selected"' : ""?> ><?=$st?></option>
                                     <?php endforeach?>
@@ -79,7 +81,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Level</label>
-                                <select class="form-control select2" name="health" style="width: 100%;">
+                                <select class="form-control select2" name="level" style="width: 100%;">
                                 <?php foreach($level as $lv): ?>
                                         <option <?= ($old['level'] == $lv) ? 'selected="selected"' : ""?> ><?=$lv?></option>
                                     <?php endforeach?>
@@ -94,7 +96,7 @@
                                 <label>Spaceship</label>
                                 <select class="form-control select2" name="spaceship" style="width: 100%;">
                                     <?php foreach($vaisseaux as $v): ?>
-                                        <option><?=$v['identifiant']?></option>
+                                        <option <?= ($old['spaceship'] == $v['identifiant']) ? 'selected="selected"' : ""?> value="<?=$v['id']?>" ><?=$v['identifiant']?></option>
                                     <?php endforeach?>
                                 </select>
                             </div>
@@ -105,14 +107,26 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Planets</label>
-                                <select class="form-control select2" name="disponibility" style="width: 100%;">
+                                <select class="form-control select2" name="planets" style="width: 100%;">
                                     <?php foreach($planetes as $p): ?>
-                                        <option <?= ($old['planets'] == $dp) ? 'selected="selected"' : ""?> ><?=$p['nom']?></option>
+                                        <option <?= ($old['planets'] == $p['nom']) ? 'selected="selected"' : ""?> value="<?=$p['id']?>" ><?=$p['nom']?></option>"
                                     <?php endforeach?>
                                 </select>
                             </div>
                         </div>
 
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Astronauts</label>
+                                <?php foreach($astronautes as $a): ?>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox"  name="astronauts[]" id="<?=$a['nom'].$a['id']?>" value="<?=$a['id']?>">
+                                        <label for="<?=$a['nom'].$a['id']?>" class="custom-control-label"><?=$a['nom']?></label>
+                                    </div>
+                                    <?php endforeach?>
+                                
+                            </div>
+                        </div>
 
                     </div>  
 

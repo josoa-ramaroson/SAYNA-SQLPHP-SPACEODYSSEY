@@ -1,3 +1,4 @@
+
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/sidebar.php') ?>
 <?php require base_path('views/partials/nav.php') ;?>
@@ -14,7 +15,7 @@
                 <!-- /.card-header -->
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                    <table class="table m-0">
+                    <table class="table table-striped projects">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -26,30 +27,11 @@
                                 </th>
                                 <th>
                                 </th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($missions as $mission):?>
-                            <tr>
-                                <td>
-                                    <?= $mission["nom"] ?>
-                                </td>
-                                <td>  <?= $mission["debut"] ?></td>
-                                <td>  <?= $mission["fin"] ?></td>
-                                <td>  <?= $mission["niveau"] ?></td>
-
-                                <td><span class="badge badge-success"><?= $mission["etat"] ?></span></td>
-                                <td>
-                                    <!-- <i class="fas fa-edit"></i> -->
-                                    <i class="fas fa-eye"></i>
-                                </td>
-                                <td>
-                                    <i class="fas fa-trash"></i>
-                                </td>
-                            </tr>
-
-                            
-                            <?php endforeach;?>
+                           
                         </tbody>
                     </table>
                     </div>
@@ -62,89 +44,98 @@
           <h3 class="card-title">List of our missions</h3>
         </div>
         <div class="card-body p-0">
-          <table class="table table-striped projects">
+          <table class="table table-striped table-responsive projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
+                      <th style="width: 10%">
+                      Name
                       </th>
-                      <th style="width: 20%">
-                          Project Name
+                      <th style="width: 5%">
+                      Begin at
+                      </th>
+                      <th style="width: 5%">
+                      End at
                       </th>
                       <th style="width: 30%">
-                          Team Members
+                        Astronauts
+                      </th>
+                      <th style="width: 10%">
+                        Spaceship
+                      </th>
+                      <th style="width: 10%">
+                        Planet
                       </th>
                       <th>
-                          Project Progress
+                        Level
                       </th>
                       <th style="width: 8%" class="text-center">
                           Status
                       </th>
                       <th style="width: 20%">
+                    
                       </th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br>
-                          <small>
-                              Created 01.01.2019
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
-                  </tr>
-                 
+                    <?php foreach($missions as $mission):?>
+                        <tr>
+                            <td>
+                                <?= $mission["nom"] ?>
+                            </td>
+                            <td>
+                                <?= $mission["debut"] ?>
+                            </td>
+                            <td>
+                                <?= $mission["fin"] ?>
+                            </td>
+                            <td>
+                                <ul class="list-inline">
+                                    <?php foreach($mission["astronauts"] as $astronaut) :?>
+                                        <li class="list-inline-item">
+                                            <!-- <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png"> -->
+                                            <?= $astronaut["nom"] ?>
+                                            </li>
+                                    <?php endforeach?>      
+                                    </ul>
+                                </td>
+                                <td>
+                                    <?= $mission["spaceship"] ?>
+                                </td>
+                                <td>
+                                    <?= $mission["planet"] ?>
+                                </td>
+                            <td >
+                                <?= $mission["niveau"] ?>                         
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-success">  <?= $mission["etat"] ?></span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="/spaceship/show?id=<?=$mission['id']?>">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    View
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/spaceship/edit?id=<?=$mission['id']?>">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <form action="/missions" method="POST">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="id" value="<?= $mission['id']?>">
+                                                <button type="submit" class="btn btn-danger btn-sm" style="border:none">
+                                                    <i class="fas fa-trash"></i>
+                                                        Delete
+                                                </button>
+                                            </form>
+                                <a class="" href="#">
+                                    
+                                </a>
+                            </td>
+                        </tr>
+                        
+                    <?php endforeach;?>
              
               </tbody>
           </table>
