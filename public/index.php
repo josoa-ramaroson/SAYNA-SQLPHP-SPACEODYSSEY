@@ -2,7 +2,7 @@
 session_start();
 
 use Core\Session;
-
+use Core\App;
 require dirname(__DIR__)."/vendor/autoload.php";
 
 const BASE_PATH = __DIR__ . "/../";
@@ -25,7 +25,8 @@ require base_path("bootstrap.php");
 $router = new Core\Router();
 
 require base_path("routes.php");
-
+// handling the request for the pod
+cached_pod();
 // GETTING THE TYPE OF REQUEST IN ORDER TO FOLLOW THE PRINCIPLE OF RESTAPI
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];

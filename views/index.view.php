@@ -98,7 +98,7 @@
                   <!-- /.card-header -->
                   <div class="card-body">
                     <!-- image from the API -->
-                   <img src="/img/test.png" alt="The beauty of space">
+                   <img src="/img/pod.png" alt="The beauty of space">
                     <!-- /.direct-chat-pane -->
                   </div>
                  
@@ -229,18 +229,21 @@
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <ul class="products-list product-list-in-card pl-2 pr-2">
-                  <li class="item">
-                    <!-- <div class="product-img">
-                      <img src="/img/default-150x150.png" alt="Planet Image" class="img-size-50">
-                    </div> -->
-                    <div class="product-info">
-                      <a href="/planets/edit" class="product-title">KEPLER 
-                        <span class="badge badge-info float-right">1800 </span></a>
-                      <span class="product-description">
-                        circumference: 100 year light
-                      </span>
-                    </div>
-                  </li>
+                 <?php foreach($planets as $planet) :?>
+                        <li class="item">
+                            <!-- <div class="product-img">
+                            <img src="/img/default-150x150.png" alt="Planet Image" class="img-size-50">
+                            </div> -->
+                            <div class="product-info">
+                            <a href="/planets/edit?id=<?=$planet['id']?>" class="product-title"> <?= $planet['nom'] ?>
+                                <span class="badge badge-info float-right"><?= $planet['distance_terre'] ?></span>
+                                </a>
+                            <span class="product-description">
+                                circumference: <?= $planet['circonference']?> years light
+                            </span>
+                            </div>
+                        </li>
+                  <?php endforeach?>      
                   <!-- /.item -->
                 </ul>
               </div>

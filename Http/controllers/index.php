@@ -26,11 +26,15 @@ etat = 'FINISHED'")->find()['t'];
 $total_vaisseau = $db->query("SELECT COUNT(*) as t FROM vaisseaux ")->find() ['t'];
 
 $total_astronauts = $db->query("SELECT COUNT(*) as t FROM astronautes ")->find() ['t'];
+
+$planets = $db->query("SELECT * FROM planetes ")->get();
+
 view("index.view.php", [
     'heading' => "Home",
     'total_missions'=>$total_mission,
     'completed_mission'=> $completed_mission,
     "total_vaisseau" => $total_vaisseau,
     'total_astronauts' => $total_astronauts,
-    'missions' => $missions 
+    'missions' => $missions ,
+    'planets' => $planets
 ]);

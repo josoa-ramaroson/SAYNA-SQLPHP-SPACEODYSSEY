@@ -74,3 +74,38 @@ function inAstr($array,$e){
     }   
     return false;
 }
+
+function cached_pod(){
+
+    $image_path = base_path("public/img/pod.png");
+    $cacheDuration = 24 * 60 * 60; 
+
+    if (!(file_exists($image_path) && (time() - filemtime($image_path)) < $cacheDuration)) {
+        // Download the file from the API
+        $url = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
+
+        // request to the API
+        $curl = curl_init($url);
+        // Set optioin parameters
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        // get the json strings result
+        $response = curl_exec($curl);
+        // close connexion
+        curl_close($curl);
+
+        // retrieve image url
+        $image_url = Json_decode($response)->hdurl;
+
+        // put the 
+        $image = file_get_contents($image_url);
+    
+        $image = file_put_contents($image_path, $image);
+        
+        // Update the file's download time
+        touch($image_path);
+    
+    }
+    
+    return $image_path;
+}
