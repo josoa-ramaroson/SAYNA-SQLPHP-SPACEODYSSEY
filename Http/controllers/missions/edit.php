@@ -25,7 +25,7 @@ FROM astronautes WHERE vaisseau_id = :vid",[
 // here we get the general information
 $vaisseaux = $db->query("SELECT id,identifiant FROM vaisseaux")->get();
 $planetes = $db->query("SELECT id, nom FROM planetes")->get();
-$astronautes = $db->query("SELECT id,nom FROM astronautes")->get();
+$astronautes = $db->query("SELECT id,nom FROM astronautes ")->get();
 
 
 
